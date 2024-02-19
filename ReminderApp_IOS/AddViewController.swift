@@ -13,6 +13,7 @@ class AddViewController: UIViewController {
     @IBOutlet var bodyField: UITextField!
     @IBOutlet var datePicker: UIDatePicker!
     
+    public var completion: ((String, String, Date) -> Void)?
     override func viewDidLoad() {
         super.viewDidLoad()
 

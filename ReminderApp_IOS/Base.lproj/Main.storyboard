@@ -32,8 +32,16 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Reminders" id="Blp-tb-Hxm">
-                        <barButtonItem key="leftBarButtonItem" title="Test" id="QoM-pJ-Rcs"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="yyv-gw-V1m"/>
+                        <barButtonItem key="leftBarButtonItem" title="Test" id="QoM-pJ-Rcs">
+                            <connections>
+                                <action selector="didTapTest" destination="BYZ-38-t0r" id="K13-eY-iTH"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="yyv-gw-V1m">
+                            <connections>
+                                <action selector="didTapAdd" destination="BYZ-38-t0r" id="ipP-xr-6a0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
