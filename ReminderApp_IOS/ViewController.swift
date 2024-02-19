@@ -4,7 +4,7 @@
 //
 //  Created by fjolla on 2/19/24.
 //
-
+import UserNotifications
 import UIKit
 
 class ViewController: UIViewController {
@@ -17,7 +17,16 @@ class ViewController: UIViewController {
         table.dataSource = self
     }
     @IBAction func didTapAdd(){
-        //show add vc
+        // fire test notification
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound], completionHandler: { success, error in
+            if success {
+                // schedule test
+                
+            }
+            else if error != nil {
+                print("error occurred")
+            }
+        })
     }
     @IBAction func didTapTest(){
        //fire test notification
