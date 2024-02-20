@@ -16,7 +16,12 @@ class ViewController: UIViewController {
         table.delegate = self
         table.dataSource = self
     }
-
+    @IBAction func didTapAdd(){
+        //show add vc
+    }
+    @IBAction func didTapTest(){
+       //fire test notification
+    }
 }
 extension ViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -40,7 +45,7 @@ extension ViewController:UITableViewDataSource{
         return cell
     }
 }
-struct My Reminder{
+struct MyReminder{
     let title: String
     let date: Date
     let identifier: String
