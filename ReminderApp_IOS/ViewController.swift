@@ -17,7 +17,11 @@ class ViewController: UIViewController {
         table.dataSource = self
     }
     @IBAction func didTapAdd(){
-        // fire test notification
+        // show add vc
+        
+    }
+    @IBAction func didTapTest(){
+       //fire test notification
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound], completionHandler: { success, error in
             if success {
                 // schedule test
@@ -26,11 +30,7 @@ class ViewController: UIViewController {
             else if error != nil {
                 print("error occurred")
             }
-        })
-    }
-    @IBAction func didTapTest(){
-       //fire test notification
-    }
+        })    }
 }
 extension ViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
