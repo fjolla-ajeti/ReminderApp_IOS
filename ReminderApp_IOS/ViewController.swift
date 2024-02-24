@@ -25,8 +25,7 @@ class ViewController: UIViewController {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound], completionHandler: { success, error in
             if success {
                 // schedule test
-                
-            }
+                self.scheduleTest()            }
             else if error != nil {
                 print("error occurred")
             }
@@ -39,7 +38,15 @@ class ViewController: UIViewController {
         content.title = "Hello World"
         content.sound = .default
         content.body = "My long body. My long body. My long body. My long body. My long body. My long body. "
-        
+        let targetDate = Date().addingTimeInterval(10)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: targetDate), repeats: false)
+        let request = UNNotificationRequest(identifier: "some_long_id", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: { error in
+            if error != nil {
+                print("something went wrong")
+            }
+        })
+
     }
 }
 extension ViewController: UITableViewDelegate{
