@@ -30,7 +30,17 @@ class ViewController: UIViewController {
             else if error != nil {
                 print("error occurred")
             }
-        })    }
+            
+        })
+        
+    }
+    func scheduleTest() {
+        let content = UNMutableNotificationContent()
+        content.title = "Hello World"
+        content.sound = .default
+        content.body = "My long body. My long body. My long body. My long body. My long body. My long body. "
+        
+    }
 }
 extension ViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
