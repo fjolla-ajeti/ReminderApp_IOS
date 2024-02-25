@@ -52,16 +52,61 @@
             </objects>
             <point key="canvasLocation" x="944.27480916030527" y="-27.464788732394368"/>
         </scene>
-        <!--View Controller-->
+        <!--Add View Controller-->
         <scene sceneID="78S-an-QUS">
             <objects>
-                <viewController id="imy-rF-8aF" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="add" id="imy-rF-8aF" customClass="AddViewController" customModule="ReminderApp_IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="52X-rJ-zQY">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FIb-jx-VLe">
+                                <rect key="frame" x="10" y="69" width="373" height="52"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="VW9-Fl-VOE"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="52" id="eER-Fh-Yql"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="52" id="k4U-fg-ldv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter body" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CSQ-hZ-ffX">
+                                <rect key="frame" x="10" y="141" width="373" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="52" id="aLT-Vv-aeq"/>
+                                    <constraint firstAttribute="height" constant="52" id="dfc-kS-F2K"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="WMl-pG-xO6">
+                                <rect key="frame" x="10" y="203" width="373" height="570"/>
+                            </datePicker>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="VYv-2Q-chf"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                        <constraints>
+                            <constraint firstItem="FIb-jx-VLe" firstAttribute="leading" secondItem="VYv-2Q-chf" secondAttribute="leading" constant="10" id="6b1-16-gDk"/>
+                            <constraint firstItem="VYv-2Q-chf" firstAttribute="bottom" secondItem="WMl-pG-xO6" secondAttribute="bottom" constant="10" id="80f-ra-Aez"/>
+                            <constraint firstItem="FIb-jx-VLe" firstAttribute="top" secondItem="VYv-2Q-chf" secondAttribute="top" constant="10" id="R16-Ng-Nnx"/>
+                            <constraint firstItem="VYv-2Q-chf" firstAttribute="trailing" secondItem="CSQ-hZ-ffX" secondAttribute="trailing" constant="10" id="a8q-QE-4CM"/>
+                            <constraint firstItem="WMl-pG-xO6" firstAttribute="leading" secondItem="52X-rJ-zQY" secondAttribute="leading" constant="10" id="cGN-fb-mNA"/>
+                            <constraint firstAttribute="trailing" secondItem="WMl-pG-xO6" secondAttribute="trailing" constant="10" id="djp-Bf-LzG"/>
+                            <constraint firstItem="CSQ-hZ-ffX" firstAttribute="top" secondItem="FIb-jx-VLe" secondAttribute="bottom" constant="65" id="ezE-NX-pD3"/>
+                            <constraint firstItem="VYv-2Q-chf" firstAttribute="bottom" secondItem="CSQ-hZ-ffX" secondAttribute="bottom" constant="598" id="lGR-Bk-oBx"/>
+                            <constraint firstItem="VYv-2Q-chf" firstAttribute="bottom" secondItem="CSQ-hZ-ffX" secondAttribute="bottom" constant="590" id="nET-xV-Hvw"/>
+                            <constraint firstItem="CSQ-hZ-ffX" firstAttribute="leading" secondItem="VYv-2Q-chf" secondAttribute="leading" constant="10" id="oOJ-29-uYQ"/>
+                            <constraint firstItem="CSQ-hZ-ffX" firstAttribute="top" secondItem="FIb-jx-VLe" secondAttribute="bottom" constant="20" id="q3j-W5-iTX"/>
+                            <constraint firstItem="VYv-2Q-chf" firstAttribute="trailing" secondItem="FIb-jx-VLe" secondAttribute="trailing" constant="10" id="u0I-xt-knR"/>
+                            <constraint firstItem="WMl-pG-xO6" firstAttribute="top" secondItem="CSQ-hZ-ffX" secondAttribute="bottom" constant="10" id="zYb-J1-Xts"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bodyField" destination="CSQ-hZ-ffX" id="wPb-7Z-ofp"/>
+                        <outlet property="datePicker" destination="WMl-pG-xO6" id="j7s-PX-TIG"/>
+                        <outlet property="titleField" destination="FIb-jx-VLe" id="hOz-5K-7lQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L1j-3U-4DC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -92,6 +137,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

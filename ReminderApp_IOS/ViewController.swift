@@ -18,8 +18,15 @@ class ViewController: UIViewController {
     }
     @IBAction func didTapAdd(){
         // show add vc
-        
-    }
+        guard let vc = storyboard?.instantiateViewController(identifier: "add") as? AddViewController else {
+                    return
+                }
+
+                vc.title = "New Reminder"
+                vc.navigationItem.largeTitleDisplayMode = .never
+        vc.completion = { title, body, date in
+        }
+                navigationController?.pushViewController(vc, animated: true)    }
     @IBAction func didTapTest(){
        //fire test notification
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound], completionHandler: { success, error in
