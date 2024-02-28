@@ -97,11 +97,19 @@ extension ViewController:UITableViewDataSource{
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = models[indexPath.row].title
+           let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+           cell.textLabel?.text = models[indexPath.row].title
+           let date = models[indexPath.row].date
 
-        return cell
-    }
+           let formatter = DateFormatter()
+           formatter.dateFormat = "MMM, dd, YYYY"
+           cell.detailTextLabel?.text = formatter.string(from: date)
+
+           cell.textLabel?.font = UIFont(name: "Arial", size: 25)
+           cell.detailTextLabel?.font = UIFont(name: "Arial", size: 22)
+           return cell
+       }
+    
 }
 struct MyReminder{
     let title: String
