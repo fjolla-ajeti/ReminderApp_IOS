@@ -52,19 +52,19 @@ class ViewController: UIViewController {
         
     
     navigationController?.pushViewController(vc, animated: true)    }
-    @IBAction func didTapTest(){
-       //fire test notification
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound], completionHandler: { success, error in
-            if success {
-                // schedule test
-                self.scheduleTest()            }
-            else if error != nil {
-                print("error occurred")
-            }
+    @IBAction func didTapTest() {
+            models.removeAll()
+            table.reloadData()
+
             
-        })
-        
-    }
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound], completionHandler: { success, error in
+                if success {
+                    self.scheduleTest()
+                } else if error != nil {
+                    print("error occurred")
+                }
+            })
+        }
     func scheduleTest() {
         let content = UNMutableNotificationContent()
         content.title = "Hello World"
