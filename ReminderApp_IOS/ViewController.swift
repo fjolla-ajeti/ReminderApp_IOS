@@ -25,8 +25,33 @@ class ViewController: UIViewController {
                 vc.title = "New Reminder"
                 vc.navigationItem.largeTitleDisplayMode = .never
         vc.completion = { title, body, date in
-        }
-                navigationController?.pushViewController(vc, animated: true)    }
+            DispatchQueue.main.async {
+                           self.navigationController?.popToRootViewController(animated: true)
+                           let new = MyReminder(title: title, date: date, identifier: "id_\(title)")
+                           self.models.append(new)
+                           self.table.reloadData()
+
+                           let content = UNMutableNotificationContent()
+                           content.title = title
+                           content.sound = .default
+                           content.body = body
+
+                           let targetDate = date
+                           let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second],
+                                                                                                                     from: targetDate),
+                                                                       repeats: false)
+
+                           let request = UNNotificationRequest(identifier: "some_long_id", content: content, trigger: trigger)
+                           UNUserNotificationCenter.current().add(request, withCompletionHandler: { error in
+                               if error != nil {
+                                   print("something went wrong")
+                               }
+                           })
+                       }
+                   }
+        
+    
+    navigationController?.pushViewController(vc, animated: true)    }
     @IBAction func didTapTest(){
        //fire test notification
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound], completionHandler: { success, error in
