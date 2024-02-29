@@ -8,6 +8,7 @@ It was developed as a project for the subject "Programimi i pajisjeve mobile" (M
 - Add reminders with titles, descriptions, and specific dates.
 - Receive notifications for reminders at the specified dates and times.
 - View a list of reminders with their titles and dates.
+- Delete existing reminders.
 - Easily navigate between adding reminders and viewing the reminder list.
 
 ## Requirements
